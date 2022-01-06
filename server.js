@@ -10,7 +10,7 @@ const dbURI = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWOR
 mongoose
   .connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
-    console.log("Connected to MongoDB");
+    console.log("MongoDB :    Connected to MongoDB Successfully!");
   })
   .catch((err) => {
     console.log("Error:", err);
@@ -28,7 +28,9 @@ app.get("/api/", (req, res) => {
 
 // Listen to requests on port 5000
 app.listen(PORT, () => {
-  console.log(`Server is running on port http://localhost:${PORT}`);
+  console.log(
+    `Server  :    Server is running on port http://localhost:${PORT}`
+  );
   app.get("*", (req, res) => {
     res.sendFile(path.resolve(__dirname, "build", "index.html"));
   });
